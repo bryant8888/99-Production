@@ -1,0 +1,328 @@
+.landing-block {
+  // Корректировка отступа снизу текста и ссылки для мобильных устройств и десктопов
+  @media screen and (min-width: map-get($grid-breakpoints, "lg")) {
+    min-height: 100vh;
+    max-height: 100vh;
+    padding-bottom: 1vh;
+  }
+
+  @media screen and (max-width: map-get($grid-breakpoints, "lg")) and(orientation: portrait) {
+    min-height: 100vh;
+    max-height: 100vh;
+    padding-bottom: 15vh;
+  }
+
+  @media screen and (max-width: map-get($grid-breakpoints, "lg")) and(orientation: landscape) {
+    min-height: 100vh;
+    max-height: 100vh;
+    padding-bottom: 1vh;
+  }
+
+  overflow: hidden;
+}
+
+$image-height: 16rem;
+.background-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  max-height: 100vh;
+  position: absolute;
+  pointer-events: none;
+  overflow-y: visible;
+  //вертикальная Корректировка для изображения с руками для различных планшетов и моб. устройств
+  @media screen and (min-width: map-get($grid-breakpoints, "xl")) {
+    padding-bottom: 0 !important;
+  }
+
+  @media screen and (orientation: portrait) and (min-width: map-get($grid-breakpoints, "lg")) {
+    padding-bottom: 20vh;
+  }
+
+  // common mobile
+  @media screen
+  and (min-device-width: 300px)
+  and (max-device-height: 670px)
+  and (orientation: portrait) {
+    padding-bottom: 8vh !important;
+  }
+
+  // long mobile
+  @media screen
+  and (min-device-width: 375px)
+  and (max-device-height: 812px)
+  and (orientation: portrait) {
+    padding-bottom: 16vh;
+  }
+
+  @media screen and (orientation: landscape) and (max-width: map-get($grid-breakpoints, "xl")) {
+    padding-bottom: 12vh;
+  }
+
+  @media screen and (orientation: landscape) and (max-width: map-get($grid-breakpoints, "lg")) {
+    padding-top: 8vh;
+  }
+}
+
+$one-image-length: 879 * 1rem/16;
+$two-image-length: 1041 * 1rem/16;
+$both-images-height: 840 * 1rem/16;
+$horizontal-mobile-size-coefficient: 1.9;
+.background-99production.right {
+  background: url("../../../assets/images/landing/99background-offhand.jpg");
+  @media screen and (min-width: map-get($grid-breakpoints, "lg")) {
+    $height: 80vh;
+    min-height: calc(#{$height} - #{$navbar-brand-font-size * 2});
+    max-height: calc(#{$height} - #{$navbar-brand-font-size * 2});
+    width: $height * $one-image-length/$both-images-height;
+    background-position: bottom right;
+  }
+  @media screen and (max-width: map-get($grid-breakpoints, "xl")) {
+    $height: 70vh;
+    min-height: calc(#{$height} - #{$navbar-brand-font-size * 2});
+    max-height: calc(#{$height} - #{$navbar-brand-font-size * 2});
+  }
+  @media screen and (max-width: map-get($grid-breakpoints, "lg")) and(orientation: portrait) {
+    min-height: $image-height * 2.2;
+    max-height: $image-height * 2.2;
+    width: 100vw * $one-image-length/($one-image-length + $two-image-length);
+  }
+  @media screen and (max-width: map-get($grid-breakpoints, "lg")) and(orientation: landscape) {
+    min-height: $image-height * $horizontal-mobile-size-coefficient;
+    max-height: $image-height * $horizontal-mobile-size-coefficient;
+    width: $image-height * $horizontal-mobile-size-coefficient * $one-image-length/$both-images-height;
+    background-position: bottom left;
+  }
+  background-size: contain;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.background-99production.left {
+  background: url("../../../assets/images/landing/99background-mainhand.jpg");
+  @media screen and (min-width: map-get($grid-breakpoints, "lg")) {
+    $height: 80vh;
+    min-height: calc(#{$height} - #{$navbar-brand-font-size * 2});
+    max-height: calc(#{$height} - #{$navbar-brand-font-size * 2});
+    width: $height * $two-image-length/$both-images-height;
+    background-position: bottom left;
+  }
+  @media screen and (max-width: map-get($grid-breakpoints, "xl")) {
+    $height: 70vh;
+    min-height: calc(#{$height} - #{$navbar-brand-font-size * 2});
+    max-height: calc(#{$height} - #{$navbar-brand-font-size * 2});
+  }
+  @media screen and (max-width: map-get($grid-breakpoints, "lg")) and(orientation: portrait) {
+    min-height: $image-height * 2.2;
+    max-height: $image-height * 2.2;
+    width: 100vw * $two-image-length/($one-image-length + $two-image-length);
+  }
+  @media screen and (max-width: map-get($grid-breakpoints, "lg")) and(orientation: landscape) {
+    min-height: $image-height * $horizontal-mobile-size-coefficient;
+    max-height: $image-height * $horizontal-mobile-size-coefficient;
+    width: $image-height * $horizontal-mobile-size-coefficient * $two-image-length/$both-images-height;
+    background-position: bottom right;
+  }
+  background-size: contain;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.header {
+  max-height: 8rem;
+  overflow: visible;
+  z-index: 1000;
+}
+
+// корректировка текста и ссылки под дизайн в зависимости от устройства и его поворота
+@media screen and (min-width: map_get($grid-breakpoints, "xl")) {
+  .landing-text, .landing-small-text {
+    font-size: 3.5rem !important;
+    font-weight: inherit !important;
+  }
+}
+
+@media screen and (max-width: map_get($grid-breakpoints, "xl")) and (orientation: portrait){
+  .landing-text, .landing-small-text {
+    font-size: 3.5rem !important;
+  }
+}
+
+@media screen and (max-width: map_get($grid-breakpoints, "xl")) and (orientation: landscape){
+  .landing-text, .landing-small-text {
+    font-size: 3rem !important;
+  }
+}
+
+@media screen
+and (min-device-width: 300px)
+and (max-device-height: 670px)
+and (orientation: portrait) {
+  .landing-text, .landing-small-text {
+    font-size: 3.5rem !important;
+    font-weight: inherit !important;
+  }
+}
+
+
+// long mobile
+@media screen
+and (min-device-width: 375px)
+and (max-device-height: 812px)
+and (orientation: portrait) {
+  .landing-text {
+    font-size: 5.5rem;
+    margin-bottom: 3.5rem !important;
+  }
+
+  .landing-small-text {
+    font-size: 3rem;
+  }
+}
+
+
+//common mobile horizontal
+@media screen
+and (min-device-width: 300px)
+and (max-device-width: 670px)
+and (orientation: landscape) {
+  .landing-text {
+    font-size: 3rem !important;
+
+  }
+}
+
+
+//long mobile horizontal
+@media screen
+and (min-device-width: 375px)
+and (max-device-width: 992px)
+and (orientation: landscape) {
+  .landing-text {
+    font-size: 3.5rem;
+  }
+}
+
+.landing-bg {
+  background-image: url("../../../assets/images/landing/landing-bg.png");
+  @media screen and (min-width: map_get($grid-breakpoints, "xl")) {
+    background-size: 330vh;
+    background-position-x: calc(-25vw);
+    //background-position-y: calc(60vh - 6rem);
+  }
+  @media screen and (max-width: map_get($grid-breakpoints, "xl")) {
+    background-position-x: -46vw;
+    //background-position-y: calc(80vh - 13rem);
+  }
+  @media screen and (max-width: map_get($grid-breakpoints, "lg")) and (orientation: portrait) {
+    background-position-x: -40vw;
+    //background-position-y: 30rem;
+    background-size: 350vh;
+    min-height: 200vh!important;
+  }
+
+  @media screen and (max-width: map_get($grid-breakpoints, "lg")) and (orientation: landscape) {
+    background-position-x: -33.5vw;
+    //background-position-y: 23.5rem;
+    background-size: 350vh;
+    min-height: 200vh!important;
+  }
+
+  //For iPhone X
+  @media screen and (min-device-width: 375px) and (max-device-width: 413px)  and (min-device-height: 736px) and (max-device-height: 812px) {
+    background-size: 280vh !important;
+    background-position-x: -70vw !important;
+    //background-position-y: 55rem;
+  }
+
+  //For iPhone X Horizontal
+  @media screen and (min-device-height: 375px)
+                and (max-device-height: 413px)
+                and (min-device-width: 736px)
+                and (max-device-width: 812px)
+                and (orientation: landscape) {
+    background-position-x: -27vw !important;
+  }
+
+  // common mobile
+  @media screen and (min-device-width: 200px) and (max-device-width: 375px) {
+    background-size: 290vh;
+    background-position-x: -50vw;
+    //background-position-y: 42rem;
+  }
+  background-repeat: no-repeat;
+  min-height: 200vh;
+  width: 100%;
+}
+
+.increase-font {
+  font-size: 0.85rem !important;
+}
+
+$landing-margin-tablet: 2rem;
+$workaround-padding: 30rem;
+
+@mixin workaround_move_down() {
+  transform: translateY(5rem);
+}
+
+.landing-content-font {
+  @media screen and (max-width: map_get($grid-breakpoints, "xl")) {
+    padding-left: 1.1rem !important;
+  }
+  @media screen and (max-width: map_get($grid-breakpoints, "lg")) and (orientation: portrait) {
+    margin-left: $landing-margin-tablet !important;
+    padding-top: 12rem !important;
+    padding-right: 5vw !important;
+    &.landing-text {
+      font-size: 6.6rem !important;
+      line-height: 6.6rem !important;
+    }
+    @include workaround_move_down();
+    &>span.landing-small-text {
+      font-size: 0.7em !important;
+    }
+  }
+
+  @media screen and (max-width: map_get($grid-breakpoints, "lg")) and (orientation: landscape) {
+    margin-left: $landing-margin-tablet !important;
+    padding-bottom: 5.8rem !important;
+    @include workaround_move_down();
+    padding-left: $workaround-padding !important;
+  }
+}
+
+.landing-content-font, .landing-content-font > span {
+  @media screen and (max-width: map_get($grid-breakpoints, "lg")) {
+    font-size: 3.6rem !important;
+    color: $white !important;
+    line-height: 4.5rem;
+  }
+}
+
+.landing-content-button {
+  @media screen and (max-width: map_get($grid-breakpoints, "xl")) {
+    padding-left: 1.2rem !important;
+  }
+  @media screen and (max-width: map_get($grid-breakpoints, "lg")) {
+    flex: 66% !important;
+    width: 66% !important;
+    margin-left: $landing-margin-tablet !important;
+    margin-top: 8rem !important;
+    @include workaround_move_down();
+
+    &>a.reference-info.inverted {
+      color: $white !important;
+      font-size: 1.6rem !important;
+      border: 1.5px solid $white !important;
+    }
+  }
+
+  @media screen and (max-width: map_get($grid-breakpoints, "lg")) and (orientation: landscape) {
+    transform: translateY(-7rem) !important;
+    padding-left: $workaround-padding !important;
+    text-align: left;
+    & > h2 {
+      color: $white !important;
+    }
+  }
+}

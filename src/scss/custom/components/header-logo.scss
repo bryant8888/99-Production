@@ -1,0 +1,65 @@
+@import "./../../variables";
+
+@media screen and (min-width: map-get($grid-breakpoints, "lg")) {
+  .header-logo {
+    min-height: 0.9 * 3.6*$navbar-brand-font-size;
+    max-height: 0.9 * 3.6*$navbar-brand-font-size;
+    width: auto;
+    svg {
+      min-height: 0.9 * 3.6*$navbar-brand-font-size;
+      max-height: 0.9 * 3.6*$navbar-brand-font-size;
+      padding: 0.05 * 3.6*$navbar-brand-font-size 0;
+      width: auto;
+    }
+  }
+}
+
+
+@media screen and (max-width: map-get($grid-breakpoints, "lg")) and (orientation: portrait) {
+
+  .header-logo {
+    min-height: 0.9 * 5.5 * $navbar-brand-font-size;
+    max-height: 0.9 * 5.5 * $navbar-brand-font-size;
+    width: auto;
+
+    svg {
+      min-height: 0.9 * 5.5 * $navbar-brand-font-size;
+      max-height: 0.9 * 5.5 * $navbar-brand-font-size;
+      padding: 0.05 * 3.6*$navbar-brand-font-size 0;
+      width: auto;
+    }
+  }
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, "lg")) and (orientation: landscape) {
+
+  .header-logo {
+    min-height: 0.9 * 5.5 * $navbar-brand-font-size;
+    max-height: 0.9 * 5.5 * $navbar-brand-font-size;
+    width: auto;
+
+    svg {
+      min-height: 0.9 * 5.5 * $navbar-brand-font-size;
+      max-height: 0.9 * 5.5 * $navbar-brand-font-size;
+      padding: 0.05 * 5.5 * $navbar-brand-font-size 0;
+      width: auto;
+    }
+  }
+}
+
+.header-logo {
+  svg {
+    path {
+      fill: $black !important;
+      transition: fill 0.1s ease-in-out 0.05s;
+    }
+  }
+
+  &:hover {
+    svg {
+      path {
+        fill: $danger !important;
+      }
+    }
+  }
+}

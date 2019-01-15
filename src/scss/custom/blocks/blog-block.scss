@@ -1,0 +1,70 @@
+.blog-block {
+  overflow: hidden;
+}
+$loop-length: 5;
+
+.blog-blocks {
+  @media screen and (max-width: map_get($grid-breakpoints, 'lg')) and (orientation: landscape) {
+    flex: 50%;
+  }
+}
+
+@for $i from 1 through $loop-length {
+  $margin-step: 0.2rem;
+  $height: $i*(5rem) + ($i - 1) * 2 * $margin-step;
+
+  .blog-part-#{$i} {
+    min-height: $height;
+    max-height: $height;
+    overflow: hidden;
+    margin: 0 $margin-step 2 * $margin-step $margin-step;
+    display: flex;
+    position: relative;
+
+    &>img {
+      width: 100%;
+      //min-height: max-content;
+    }
+
+    .blog-arrow {
+      position: absolute;
+      width: 100%;
+      min-height: $height;
+      max-height: $height;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: flex-end;
+      pointer-events: none;
+      padding-right: 2rem;
+      padding-bottom: 1rem;
+      & img {
+        width: 4rem;
+        min-height: 4rem;
+        max-height: 4rem;
+        padding: 0.5rem;
+      }
+    }
+
+    .block-area {
+      position: absolute;
+      width: 100%;
+      min-height: $height;
+      max-height: $height;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out 0.1s;
+
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.3);
+      }
+      .part-text {
+        text-align: left;
+      }
+    }
+  }
+}

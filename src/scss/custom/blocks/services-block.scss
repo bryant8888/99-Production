@@ -1,0 +1,162 @@
+$rail-size: 1.5px;
+
+.services-block {
+  @include full-height-minus-header;
+}
+
+.services-content {
+  @include full-height-minus-header;
+}
+
+.services-backgrounds {
+  width: 100%;
+  @include full-height-minus-header;
+  filter: brightness(25%);
+  background: $dark;
+  & .service-image {
+    position: absolute;
+    width: 100%;
+    @include full-height-minus-header;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out 0.05s;
+
+    &.show {
+      opacity: 1;
+    }
+
+    & img {
+      @media screen and (orientation: landscape) {
+        min-width: 100%;
+      }
+
+      @media screen and (orientation: portrait) {
+        @include full-height-minus-header;
+      }
+    }
+  }
+}
+
+.service-rails {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  @include full-height-minus-header;
+
+  &>.service-rail {
+    width: $rail-size;
+    background: $light;
+  }
+}
+
+.service-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: center;
+  @include full-height-minus-header;
+}
+
+.service-item {
+  $animation-time: 0.1s;
+  $delay-time: 0.05s;
+  @media screen and (min-width: map-get($grid-breakpoints, "lg")) {
+    padding: 8 * $kbd-padding-y;
+    font-size: 0.7rem;
+    font-weight: 500;
+  }
+  border-left: $rail-size solid $light;
+  border-right: $rail-size solid $light;
+  color: $light;
+  cursor: pointer;
+  z-index: 1;
+  transition: border-right-color $animation-time ease-in-out $delay-time,
+  border-left-color $animation-time ease-in-out $delay-time,
+  color $animation-time ease-in-out $delay-time;
+
+  &:hover, &.active {
+    border-left: $rail-size solid $danger;
+    border-right: $rail-size solid $danger;
+    color: $danger;
+    z-index: 2;
+  }
+}
+
+.service-item-rail {
+  $animation-time: 0.1s;
+  $delay-time: 0.05s;
+  width: 100%;
+  min-height: $rail-size;
+  background: $light;
+  transition: background-color $animation-time ease-in-out $delay-time;
+
+  &:hover, &.active, &.hovered {
+    background: $danger;
+    color: $danger;
+    z-index: 2;
+  }
+}
+
+.service-texts {
+  $block-height: 60vh;
+
+  //@include full-height-minus-header($block-height);
+  & .service-text {
+    position: absolute;
+    //@include full-height-minus-header($block-height);
+    opacity: 0;
+    //transition: opacity 0.5s ease-in-out 0.25s;
+
+    &.show {
+      position: inherit;
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+
+.service-item-header {
+  left: 0;
+  color: $light;
+  font-size: 2.5rem;
+  padding: 0.3rem 0.5rem 0.3rem 15%;
+  width: fit-content;
+  text-align: right;
+  background-color: rgba($danger, 0.7);
+  transform: translateX(-26%);
+  // common mobile
+  @media screen
+  and (orientation: portrait) {
+    margin-top: 6rem;
+    margin-bottom: 5.5rem;
+  }
+
+  // long mobile
+  @media screen
+  and (orientation: landscape) {
+    margin-top: 0.1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.service-item-content {
+  & p {
+    // common mobile
+    @media screen
+    and (orientation: portrait) {
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+      line-height: 2.6rem;
+    }
+
+    // long mobile
+    @media screen
+    and (orientation: landscape) {
+      font-size: 2rem;
+      margin-bottom: 0.12rem;
+      line-height: 2.1rem;
+    }
+
+  }
+}

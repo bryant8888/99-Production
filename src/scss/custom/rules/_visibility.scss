@@ -1,0 +1,69 @@
+//hide by screen-size
+@media screen and(max-width: map-get($grid-breakpoints, "lg")) {
+  .lg-show {
+    display: none !important;
+  }
+
+  .md-show {
+    display: flex !important;
+  }
+}
+
+@media screen and(min-width: map-get($grid-breakpoints, "lg")) {
+  .lg-show {
+    display: flex !important;
+  }
+
+  .md-show {
+    display: none !important;
+  }
+}
+
+
+// hide by orientation
+@media screen and(orientation: landscape) {
+  .landscape-show {
+    display: flex !important;
+  }
+
+  .portrait-show {
+    display: none !important;
+  }
+}
+
+@media screen and(orientation: portrait) {
+  .portrait-show {
+    display: flex !important;
+  }
+
+  .landscape-show {
+    display: none !important;
+  }
+}
+
+// more complex hide
+.lg-and-portrait-show {
+  display: none !important;
+}
+
+@media screen and(orientation: portrait) {
+  .lg-and-portrait-show {
+    display: flex !important;
+  }
+}
+
+@media screen and (min-width: map_get($grid-breakpoints, "lg")) {
+  .lg-and-portrait-show {
+    display: flex !important;
+  }
+}
+
+.md-and-landscape-show {
+  display: none !important;
+}
+
+@media screen and (max-width: map_get($grid-breakpoints, "lg")) and (orientation: landscape) {
+  .md-and-landscape-show {
+    display: flex !important;
+  }
+}

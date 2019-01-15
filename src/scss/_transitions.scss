@@ -1,0 +1,49 @@
+// stylelint-disable selector-no-qualifying-type
+
+.fade {
+  opacity: 0;
+  @include transition($transition-fade);
+
+  &.show {
+    opacity: 1;
+  }
+}
+
+.collapse {
+  padding-left: 0!important;
+  @media screen and(max-width: map-get($grid-breakpoints, "lg")) {
+    display: block;
+    overflow: hidden;
+    $animation-time: 0.2s;
+    $delay-time: $animation-time/2;
+    max-height: 0;
+    min-height: 0;
+    opacity: 0;
+    transition: opacity $animation-time ease-in-out $delay-time,
+                max-height $animation-time ease-in-out $delay-time,
+                min-height $animation-time ease-in-out $delay-time;
+    &.show {
+      @include full-height-minus-header();
+      opacity: 1;
+    }
+  }
+}
+
+tr {
+  &.collapse.show {
+    display: table-row;
+  }
+}
+
+tbody {
+  &.collapse.show {
+    display: table-row-group;
+  }
+}
+
+.collapsing {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  @include transition($transition-collapse);
+}
